@@ -22,4 +22,9 @@ public class TheaterShow extends Show {
     public List<String> getActors() {
         return Collections.unmodifiableList(this.actors);
     }
+
+    @Override
+    public void accept(final IShowVisitor visitor) {
+        visitor.visit(this);
+    }
 }

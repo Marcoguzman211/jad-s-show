@@ -23,4 +23,9 @@ public class MovieShow extends Show {
     public MovieType getMovieType() {
         return this.movieType;
     }
+
+    @Override
+    public void accept(final IShowVisitor visitor) {
+        visitor.visit(this);
+    }
 }
