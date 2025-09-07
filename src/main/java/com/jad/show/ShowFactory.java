@@ -1,5 +1,7 @@
 package com.jad.show;
 
+import com.jad.show.create.CreateShowHandlerChain;
+
 public abstract class ShowFactory {
     protected MovieShow makeMovieShow(final String name,
                                       final String description,
@@ -26,5 +28,9 @@ public abstract class ShowFactory {
                                           final String description,
                                           final String artist) {
         return new ConcertShow(name, description, artist);
+    }
+
+    public static IShow makeShow(final String showDescription) {
+        return CreateShowHandlerChain.INSTANCE.handle(showDescription);
     }
 }
