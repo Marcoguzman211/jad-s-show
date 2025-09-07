@@ -16,4 +16,9 @@ public class StreetShow extends Show {
     public List<String> getPerformers() {
         return Collections.unmodifiableList(this.performers);
     }
+
+    @Override
+    public void accept(final IShowVisitor visitor) {
+        visitor.visit(this);
+    }
 }

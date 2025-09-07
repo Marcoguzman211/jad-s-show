@@ -25,4 +25,9 @@ public abstract class Show implements IShow{
     public ShowType getShowType() {
         return this.showType;
     }
+
+    @Override
+    public void accept(final IShowVisitor visitor) {
+        visitor.visit(this);
+    }
 }

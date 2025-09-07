@@ -11,4 +11,9 @@ public class ConcertShow extends Show {
     public String getArtist() {
         return this.artist;
     }
+
+    @Override
+    public void accept(final IShowVisitor visitor) {
+        visitor.visit(this);
+    }
 }
